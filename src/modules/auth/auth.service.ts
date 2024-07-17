@@ -6,12 +6,13 @@ import { createUserDto } from "./dto/index.dto";
 export class AuthService {
 
     async createUser() {
-        if (await this.usersModel.findOne({ email: createUserDto.email })) throw new HttpException('email already in use', 400);
+        const existUser = await this.usersModel.findOne({ email: createUserDto.email })
+        if (existUser) throw new HttpException('email already in use', 400);
 
         const hashedPass = await this.hashString(createUserDto.password);
+
         const newUser = new this.usersModel({
-            ...createUserDto,
-            password: hashedPass,
+            ...createUserDto, password: hashedPass,
         });
 
         const createdUser = await newUser.save();
@@ -19,5 +20,8 @@ export class AuthService {
 
         return createdUser;
     }
+
+
+
 
 }
