@@ -1,23 +1,23 @@
-import { IsDate, IsEmail, IsNotEmpty, IsNumber, IsString, MaxLength, MinLength , } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, Min, Matches, IsIn, MinLength } from 'class-validator';
 
 export class createUserDto {
 
-    @IsNotEmpty() @IsString() @MinLength(3) @MaxLength(25)
+    @MinLength(3)
     first_name: string;
 
-    @IsNotEmpty() @IsString()
+    @MinLength(3)
     last_name: string;
 
-    @IsNotEmpty() @IsNumber() @MinLength(10) @MaxLength(10)
-    mobile: number;
+    @Matches(/^[6789]\d{9}$/, { message: "Invalid Phone Number" })
+    mobile: string;
 
-    @IsNotEmpty() @IsEmail()
+    @IsEmail()
     email: string;
 
-    @IsNotEmpty() @IsString()
+    @IsIn(['MALE', 'FEMALE', 'BINARY'])
     gender: string;
 
-    @IsNotEmpty() @IsString() @IsDate()
+    @IsNotEmpty() @IsString() @Matches(/^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-(\d{4})$/, { message: "Date Of Birth is invalid" })
     dob: string;
 
     @IsNotEmpty() @IsString()
@@ -29,6 +29,6 @@ export class createUserDto {
     @IsNotEmpty() @IsString()
     address: string;
 
-    @IsNotEmpty() @IsNumber() 
+    @IsNotEmpty() @Min(110001, { message: "Pincode is Invalid" })
     pincode: number;
 }
