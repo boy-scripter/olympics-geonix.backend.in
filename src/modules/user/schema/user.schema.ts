@@ -1,8 +1,9 @@
+// src/user/schemas/user.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema()
-export class Player extends Document {
+export class User extends Document {
     @Prop({ required: true })
     first_name: string;
 
@@ -34,4 +35,4 @@ export class Player extends Document {
     pincode: number;
 }
 
-export const userSchema = SchemaFactory.createForClass(Player);
+export const UserSchema = SchemaFactory.createForClass(User);
