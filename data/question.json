@@ -1,278 +1,562 @@
 [
     {
-        "text": "In which year did India won 8th hockey gold medal ?(World Record)",
-        "time_provide": 10
+        "question": "In which year did Leander paes won Olympic medal ?",
+        "A": 2004,
+        "B": 2008,
+        "C": 1996,
+        "D": 1998,
+        "answer": "C"
+    },
+    {
+        "question": "In which year did India won 8th hockey gold medal ?(World Recor",
+        "A": 1952,
+        "B": 1980,
+        "C": 1960,
+        "D": 1972,
+        "answer": "B"
+    },
+    {
+        "question": "Who was the flag bearer for India in 1984 laser olympics ?",
+        "A": "Milkha Singh ",
+        "B": "PT Usha ",
+        "C": "Zafar Iqbal",
+        "D": "Tara Singh ",
+        "answer": "C"
+    },
+    {
+        "question": "In which weight category marry kom won Olympic medal ?",
+        "A": "51 Kg ",
+        "B": " 48 kg",
+        "C": " 56 Kg ",
+        "D": " 60kg ",
+        "answer": "A"
+    },
+    {
+        "question": "where was 2008 olympics held ?",
+        "A": "London ",
+        "B": "Rome ",
+        "C": "Beijing ",
+        "D": "Shanghai ",
+        "answer": "C"
+    },
+    {
+        "question": "which athletics won india's first olympic medal ?",
+        "A": "DhyanChand ",
+        "B": "Norman Pritchard",
+        "C": "Milkha Singh ",
+        "D": " Manaio Patoria",
+        "answer": "B"
+    },
+    {
+        "question": "In 1936 India won Olympic Gold , final score vs Germany was\" ?",
+        "A": 45325,
+        "B": 45295,
+        "C": 45299,
+        "D": 45297,
+        "answer": "A"
+    },
+    {
+        "question": "Which indian won 4th Gold Medals in Field hockey ?",
+        "A": "Premnath ",
+        "B": "Leslie Claudius",
+        "C": "DhyanChand ",
+        "D": "Leslie Claudius & Udham Singh ",
+        "answer": "B"
+    },
+    {
+        "question": "where was the 1956 olympics held ??",
+        "A": "Henley",
+        "B": "Bourne ",
+        "C": "London ",
+        "D": "Melbourne",
+        "answer": "D"
+    },
+    {
+        "question": "Where is the Headquarters Of international \"IOC\"?",
+        "A": "France ",
+        "B": " Switzerland",
+        "C": "U.S.A ",
+        "D": " Turkey ",
+        "answer": "B"
+    },
+    {
+        "question": "In Which Olympic did Milkha Singh represent in Summer Olympic in India ?",
+        "A": "1952 , 1958",
+        "B": "1956 , 1960 , 1964 ",
+        "C": " 1964 , 1968 ",
+        "D": " 1948 , 1952,1956",
+        "answer": "B"
+    },
+    {
+        "question": "In which Event did \"Abhinav Bindra\" won Gold ?",
+        "A": " 10 meter Air-Rifle ",
+        "B": " 20 meter Air-Rifle ",
+        "C": " 50 meter Air-Rifle ",
+        "D": " 8 meter Air-Rifle ",
+        "answer": "A"
+    },
+    {
+        "question": "How did Abhinav Bindra Performed in 26's re-Olympic ?(10 meter Air-Rifle)",
+        "A": "3rd Place ",
+        "B": " 5th Place",
+        "C": " 4th Place",
+        "D": " 6th Place",
+        "answer": "C"
     },
     {
-        "text": "Who was the flag bearer for India in 1984 laser olympics ?",
-        "time_provide": 10
+        "question": "When will cricket feature again in summer Olympics ?",
+        "A": 2024,
+        "B": 2036,
+        "C": 2032,
+        "D": 2028,
+        "answer": "D"
     },
     {
-        "text": "In which weight category marry kom won Olympic medal ?",
-        "time_provide": 10
+        "question": "How many laps in a 1500 m swimming race ?",
+        "A": " 25 laps ",
+        "B": " 30 laps ",
+        "C": " 28 laps ",
+        "D": " 36 laps ",
+        "answer": "B"
     },
     {
-        "text": "where was 2008 olympics held ?",
-        "time_provide": 10
+        "question": "How many events are there decathlon  Olympic ?",
+        "A": 5,
+        "B": 8,
+        "C": 10,
+        "D": 20,
+        "answer": "C"
     },
     {
-        "text": "which athletics won india's first olympic medal ?",
-        "time_provide": 10
+        "question": "Dhyanchand is greatest hockey player ever in the world , what is his birth place ?",
+        "A": " Varanasi ",
+        "B": " Indore",
+        "C": " Prayagraj ",
+        "D": " New Delhi ",
+        "answer": "C"
     },
     {
-        "text": "In 1936 India won Olympic Gold , final score vs Germany was\" ?",
-        "time_provide": 10
+        "question": "World record for javelin throw ?",
+        "A": " 19.20 m ",
+        "B": " 99.50 m ",
+        "C": " 96.99 m",
+        "D": " 98.48 m",
+        "answer": "D"
     },
     {
-        "text": "Which indian won 4th Gold Medals in Field hockey ?",
-        "time_provide": 10
+        "question": "When was the first Olympic Village built?",
+        "A": " Paris 1924 ",
+        "B": " Los Angeles 1932",
+        "C": " Berlin 1936 ",
+        "D": " Helsinki 1952",
+        "answer": "B"
     },
     {
-        "text": "where was the 1956 olympics held ??",
-        "time_provide": 10
+        "question": "who won the first gymnastics medal for india olympics ?",
+        "A": " Sakshi Malik ",
+        "B": " Neeraj Chopra ",
+        "C": " Dipa KarmaKar ",
+        "D": " Sania Mirza ",
+        "answer": "C"
     },
     {
-        "text": "Where is the Headquarters Of international \"IOC\"?",
-        "time_provide": 10
+        "question": "P.V sindhu made nation proud with Silver medal , who bit he in rio-final 2016?",
+        "A": " Carolina Marin",
+        "B": " Saina Nehwal ",
+        "C": " Tae-hyeon ",
+        "D": " Sonia Singh ",
+        "answer": "A"
     },
     {
-        "text": "In Which Olympic did Milkha Singh represent in Summer Olympic in India ?",
-        "time_provide": 10
+        "question": "Vijendra Singh made the nation proud by wining Olympic medal,In which year category did he won ?",
+        "A": "Middle weight ",
+        "B": " Bantum weight ",
+        "C": " Heavy weight ",
+        "D": " Feater weight ",
+        "answer": "A"
     },
     {
-        "text": "In which Event did \"Abhinav Bindra\" won Gold ?",
-        "time_provide": 10
+        "question": "How many medals did India win in 2020 summer Olympic \"Total\"?",
+        "A": 6,
+        "B": 8,
+        "C": 7,
+        "D": 12,
+        "answer": "C"
     },
     {
-        "text": "How did Abhinav Bindra Performed in 26's re-Olympic ?(10 meter Air-Rifle)",
-        "time_provide": 10
+        "question": "India last one Olympic hockey gold in moscow 1980 ,Who was the captain ?",
+        "A": " Zafar Iqbal ",
+        "B": " Bir bahadur ",
+        "C": " Surendra Singh ",
+        "D": " Vasudev Bhaskaran ",
+        "answer": "D"
     },
     {
-        "text": "When will cricket feature again in summer Olympics ?",
-        "time_provide": 10
+        "question": "Who gave milkha singh the title of the \"flying sikh\" ?",
+        "A": " Pandit Nehru ",
+        "B": " Ayub Khan ",
+        "C": " Ziaul Haq ",
+        "D": " Indira Gandhi ",
+        "answer": "B"
     },
     {
-        "text": "How many laps in a 1500 m swimming race ?",
-        "time_provide": 10
+        "question": "Where was leander paes born ?",
+        "A": " Mumbai, Maharashta ",
+        "B": " Kolkata,W.B",
+        "C": " mudgaon,Goa ",
+        "D": " New Delhi",
+        "answer": "B"
     },
     {
-        "text": "How many events are there decathlon  Olympic ?",
-        "time_provide": 10
+        "question": "Which is highest Sporting owner of India ?",
+        "A": " Khel Ratna ",
+        "B": " Arjun Award ",
+        "C": " Vir-Ratna",
+        "D": " Droncharya Award ",
+        "answer": "A"
     },
     {
-        "text": "Dhyanchand is greatest hockey player ever in the world , what is his birth place ?",
-        "time_provide": 10
+        "question": "In 1956 melbourne Olympics India Finished in which position ?",
+        "A": " 3rd Place",
+        "B": " 4th Place",
+        "C": " 5th Place",
+        "D": " 7th Place",
+        "answer": "B"
     },
     {
-        "text": "World record for javelin throw ?",
-        "time_provide": 10
+        "question": "\"Karate\" was included only once in summer Olympic , which Year ?",
+        "A": 2008,
+        "B": 2016,
+        "C": 2020,
+        "D": 2024,
+        "answer": "C"
     },
     {
-        "text": "When was the first Olympic Village built?",
-        "time_provide": 10
+        "question": "In which Olympic ben johnson Disqualified ?",
+        "A": "  Los-Aneles-1984 ",
+        "B": " Seoul -1988",
+        "C": " Sydney 2000 ",
+        "D": " Sarajevo ",
+        "answer": "B"
     },
     {
-        "text": "who won the first gymnastics medal for india olympics ?",
-        "time_provide": 10
+        "question": "who won india's first paralympic gold medalist ?",
+        "A": " Kabir Khan ",
+        "B": " Murlikant Petkar",
+        "C": " Mansoor Ali Khan Pataudi ",
+        "D": " PremNath ",
+        "answer": "B"
     },
     {
-        "text": "P.V sindhu made nation proud with Silver medal , who bit he in rio-final 2016?",
-        "time_provide": 10
+        "question": "Which female has most Olympic Gold ?",
+        "A": " P.V. Sindhu ",
+        "B": " Saina Nehwal",
+        "C": " Florence  Joyner ",
+        "D": " Larisa Latynina",
+        "answer": "D"
     },
     {
-        "text": "Vijendra Singh made the nation proud by wining Olympic medal,In which year category did he won ?",
-        "time_provide": 10
+        "question": "In 2012 london Olympics , how many medals did India win ?",
+        "A": " 2 Silver - 4 Bronze",
+        "B": " 8 Silver · 7 Bronze",
+        "C": " 3  Silver · 5 Bronze",
+        "D": " 6  Silver · 2 Bronze",
+        "answer": "A"
     },
     {
-        "text": "How many medals did India win in 2020 summer Olympic \"Total\"?",
-        "time_provide": 10
+        "question": "How many international goals did measure dhyan chand scored ?",
+        "A": 960,
+        "B": 657,
+        "C": 870,
+        "D": 570,
+        "answer": "D"
     },
     {
-        "text": "India last one Olympic hockey gold in moscow 1980 ,Who was the captain ?",
-        "time_provide": 10
+        "question": "India won men's hockey bronze in 2020 after many years , who was the Captain ?",
+        "A": " Hardik Singh ",
+        "B": " Varun kumar ",
+        "C": " Surendra kumar ",
+        "D": " Dilpreet Singh ",
+        "answer": "C"
     },
     {
-        "text": "Who gave milkha singh the title of the \"flying sikh\" ?",
-        "time_provide": 10
+        "question": "who won the tennis (singles) bronze medal from India?",
+        "A": " Sania mirza",
+        "B": " 2.\tSaina Nehwal",
+        "C": "        \tleander paes",
+        "D": " Ramesh krishnan",
+        "answer": "C"
     },
     {
-        "text": "Where was leander paes born ?",
-        "time_provide": 10
+        "question": "in which year was the Dhyan Chand award first awarded?",
+        "A": 1990,
+        "B": 2002,
+        "C": 1984,
+        "D": 2004,
+        "answer": "D"
     },
     {
-        "text": "Which is highest Sporting owner of India ?",
-        "time_provide": 10
+        "question": "in which year has cricket been held in summer Olympics?",
+        "A": 1896,
+        "B": 1948,
+        "C": 1900,
+        "D": 1932,
+        "answer": "C"
     },
     {
-        "text": "In 1956 melbourne Olympics India Finished in which position ?",
-        "time_provide": 10
+        "question": "who was Indian flag bearer at the Olympics twice?",
+        "A": " \tBalbir Singh",
+        "B": " Mary Kom",
+        "C": "  \tleander paes",
+        "D": "           \tAbhinav Bindra ",
+        "answer": "A"
     },
     {
-        "text": "\"Karate\" was included only once in summer Olympic , which Year ?",
-        "time_provide": 10
+        "question": "which Indian women wrestler won Olympic medal ?",
+        "A": " \tGeeta Phogat",
+        "B": " \tBabita Phogat",
+        "C": "  \tSakshi malik",
+        "D": " \tVinesh Phogat",
+        "answer": "C"
     },
     {
-        "text": "In which Olympic ben johnson Disqualified ?",
-        "time_provide": 10
+        "question": "what is the Olympic record for 100 meters -",
+        "A": " \t9.54 S",
+        "B": " 2.\t9.59 S",
+        "C": " 9.66 S",
+        "D": " 9.63 S",
+        "answer": "D"
     },
     {
-        "text": "who won india's first paralympic gold medalist ?",
-        "time_provide": 10
+        "question": "which indian track athletics was flag bearer in atlanta olympics ?",
+        "A": " P. T. Usha",
+        "B": " Shiny Abraham",
+        "C": "            M. D. Valsamma",
+        "D": " Arati Saha",
+        "answer": "B"
     },
     {
-        "text": "Which female has most Olympic Gold ?",
-        "time_provide": 10
+        "question": "india beat britain in 1998 hockey gold medal match. score\"",
+        "A": 20,
+        "B": 31,
+        "C": 41,
+        "D": 40,
+        "answer": "D"
     },
     {
-        "text": "In 2012 london Olympics , how many medals did India win ?",
-        "time_provide": 10
+        "question": "indian hockey superstar udham singh was born in ?",
+        "A": " Amritsar",
+        "B": " Jalandhar",
+        "C": "  Patiala",
+        "D": " Ludhiana",
+        "answer": "B"
     },
     {
-        "text": "How many international goals did measure dhyan chand scored ?",
-        "time_provide": 10
+        "question": "where is paralympics held summer games held in 1980?",
+        "A": " Toronto ",
+        "B": " Sidney ",
+        "C": "  Athens",
+        "D": " Arnhem",
+        "answer": "D"
     },
     {
-        "text": "India won men's hockey bronze in 2020 after many years , who was the Captain ?",
-        "time_provide": 10
+        "question": "who finished 4th in 1984 olympics ?",
+        "A": " Milkha Singh",
+        "B": " P. T. Usha",
+        "C": "  Rachita Mistry",
+        "D": " Shiny Abraham",
+        "answer": "B"
     },
     {
-        "text": "who won the tennis (singles) bronze medal from India?",
-        "time_provide": 10
+        "question": "milkha singh had a photo finish in 200 meter - 1960. who win ?",
+        "A": "  Kharlan",
+        "B": " Otis Davis",
+        "C": "  milkha singh",
+        "D": " Abdul Khaliq",
+        "answer": "B"
     },
     {
-        "text": "in which year was the Dhyan Chand award first awarded?",
-        "time_provide": 10
+        "question": "when did abhinav bindra (gold medalist) announce retirement ?",
+        "A": 2016,
+        "B": 2018,
+        "C": 2020,
+        "D": 2021,
+        "answer": "A"
     },
     {
-        "text": "in which year has cricket been held in summer Olympics?",
-        "time_provide": 10
+        "question": "which indian badminton star was 1st to win olympic medal ?",
+        "A": " Saina Nehwal",
+        "B": " PV Sindhu",
+        "C": "  Prakash Padukone",
+        "D": " Syed Modi",
+        "answer": "A"
     },
     {
-        "text": "who was Indian flag bearer at the Olympics twice?",
-        "time_provide": 10
+        "question": "how many poll events was there in recent tokyo olympics?",
+        "A": 28,
+        "B": 35,
+        "C": 38,
+        "D": 40,
+        "answer": "B"
     },
     {
-        "text": "which Indian women wrestler won Olympic medal ?",
-        "time_provide": 10
+        "question": "how many men's athletics events are there in summer olympics ?",
+        "A": 22,
+        "B": 23,
+        "C": 25,
+        "D": 30,
+        "answer": "B"
     },
     {
-        "text": "what is the Olympic record for 100 meters -",
-        "time_provide": 10
+        "question": "what is the long jump world record ?",
+        "A": " 8.8 M",
+        "B": " 8.92 M",
+        "C": "  8.95 M",
+        "D": " 8.98 M",
+        "answer": "C"
     },
     {
-        "text": "which indian track athletics was flag bearer in atlanta olympics ?",
-        "time_provide": 10
+        "question": "which country has most olympic gold medals ?",
+        "A": " India",
+        "B": " Russia ",
+        "C": "  USA",
+        "D": " China",
+        "answer": "C"
     },
     {
-        "text": "india beat britain in 1998 hockey gold medal match. score\"",
-        "time_provide": 10
+        "question": "National sports day is celebrated on 29th august, to mark which occasion?",
+        "A": " Birth Day of Dhyan Chand ",
+        "B": " Birth day of  Milkha Singh",
+        "C": "  Birth day of Abhinav Bindra",
+        "D": " Birth day of Sachin Tendulkar",
+        "answer": "A"
     },
     {
-        "text": "indian hockey superstar udham singh was born in ?",
-        "time_provide": 10
+        "question": "who has most olympic gold medals ?",
+        "A": " Michael Phelps",
+        "B": " Usain Bolt",
+        "C": "  Neeraj Chopra",
+        "D": " Carl Lewis",
+        "answer": "A"
     },
     {
-        "text": "where is paralympics held summer games held in 1980?",
-        "time_provide": 10
+        "question": "Neeraj chopra won gold medal in tokyo olympics with javelin throw distance  of- ",
+        "A": " 87.58 M ",
+        "B": " 98. 30 M ",
+        "C": "  86.62 M",
+        "D": " 85. 58 M",
+        "answer": "A"
     },
     {
-        "text": "who finished 4th in 1984 olympics ?",
-        "time_provide": 10
+        "question": "who is the first ever indian woman to win 2 olympic medal ?",
+        "A": " sania mirza",
+        "B": " PV Sindhu",
+        "C": "  saina nehwal",
+        "D": " Geeta Phogat",
+        "answer": "B"
     },
     {
-        "text": "milkha singh had a photo finish in 200 meter - 1960. who win ?",
-        "time_provide": 10
-    },
-    {
-        "text": "when did abhinav bindra (gold medalist) announce retirement ?",
-        "time_provide": 10
-    },
-    {
-        "text": "which indian badminton star was 1st to win olympic medal ?",
-        "time_provide": 10
-    },
-    {
-        "text": "how many poll events was there in recent tokyo olympics?",
-        "time_provide": 10
-    },
-    {
-        "text": "how many men's athletics events are there in summer olympics ?",
-        "time_provide": 10
-    },
-    {
-        "text": "what is the long jump world record ?",
-        "time_provide": 10
-    },
-    {
-        "text": "which country has most olympic gold medals ?",
-        "time_provide": 10
-    },
-    {
-        "text": "National sports day is celebrated on 29th august, to mark which occasion?",
-        "time_provide": 10
-    },
-    {
-        "text": "who has most olympic gold medals ?",
-        "time_provide": 10
-    },
-    {
-        "text": "Neeraj chopra won gold medal in tokyo olympics with javelin throw distance  of- ",
-        "time_provide": 10
-    },
-    {
-        "text": "who is the first ever indian woman to win 2 olympic medal ?",
-        "time_provide": 10
-    },
-    {
-        "text": "who won boxing medal for india in recent tokyo olympics ?",
-        "time_provide": 10
-    },
-    {
-        "text": "How many competitors in indian olympic contingent. tokyo 2020?",
-        "time_provide": 10
-    },
-    {
-        "text": "india won hockey gold in helsinki 1952 who was captain ?",
-        "time_provide": 10
-    },
-    {
-        "text": "where was neeraj chopra born ?",
-        "time_provide": 10
-    },
-    {
-        "text": "karnam malleswari became india's first olympic medalist in weightlifting, in which Category ?",
-        "time_provide": 10
-    },
-    {
-        "text": "as of 2020 cash prize for khel ratna award is _",
-        "time_provide": 10
-    },
-    {
-        "text": "where will the 2032 summer olympics be held ?",
-        "time_provide": 10
-    },
-    {
-        "text": "in 2020 many new sports were added in the summer olympics, how many?",
-        "time_provide": 10
-    },
-    {
-        "text": "when was the first paralympics game held?",
-        "time_provide": 10
-    },
-    {
-        "text": "which of these sports movie is about olympics ?",
-        "time_provide": 10
-    },
-    {
-        "text": "who is the mascot in beijing olympics ?",
-        "time_provide": 10
-    },
-    {
-        "text": "how many medals did sushil kumar wins in olympics games ?",
-        "time_provide": 10
-    },
-    {
-        "text": "who won men's hockey gold in 2020 tokyo olympics ?",
-        "time_provide": 10
+        "question": "who won boxing medal for india in recent tokyo olympics ?",
+        "A": " Mary Kom",
+        "B": " Vijender Singh",
+        "C": "  Lovlina Borgohain",
+        "D": "sushil kumar",
+        "answer": "C"
+    },
+    {
+        "question": "How many competitors in indian olympic contingent. tokyo 2020?",
+        "A": 126,
+        "B": 135,
+        "C": 120,
+        "D": 125,
+        "answer": "A"
+    },
+    {
+        "question": "india won hockey gold in helsinki 1952 who was captain ?",
+        "A": " kunwar digvijay singh",
+        "B": "  Udham Singh",
+        "C": "   Dharam Singh",
+        "D": "  Balbir singh",
+        "answer": "A"
+    },
+    {
+        "question": "where was neeraj chopra born ?",
+        "A": "  Hisar Haryana ",
+        "B": " Khandra Haryana",
+        "C": "   Rohtak Haryana ",
+        "D": " Faridabad",
+        "answer": "B"
+    },
+    {
+        "question": "karnam malleswari became india's first olympic medalist in weightlifting, in which Category ?",
+        "A": 67,
+        "B": 68,
+        "C": 62,
+        "D": 69,
+        "answer": "D"
+    },
+    {
+        "question": "as of 2020 cash prize for khel ratna award is _",
+        "A": " 10 L ",
+        "B": "  20 L",
+        "C": "  25 L",
+        "D": " 50 L",
+        "answer": "C"
+    },
+    {
+        "question": "where will the 2032 summer olympics be held ?",
+        "A": "  Brazil",
+        "B": " New York",
+        "C": " Brisbane",
+        "D": "  New Delhi",
+        "answer": "C"
+    },
+    {
+        "question": "in 2020 many new sports were added in the summer olympics, how many?",
+        "A": 34,
+        "B": 30,
+        "C": 33,
+        "D": 32,
+        "answer": "C"
+    },
+    {
+        "question": "when was the first paralympics game held?",
+        "A": 1960,
+        "B": 1964,
+        "C": 1968,
+        "D": 1972,
+        "answer": "A"
+    },
+    {
+        "question": "which of these sports movie is about olympics ?",
+        "A": " Dangal ",
+        "B": " Bhaag Milkha Bhaag ",
+        "C": "  Gold ",
+        "D": "  Sultan ",
+        "answer": "C"
+    },
+    {
+        "question": "who is the mascot in beijing olympics ?",
+        "A": " Tom",
+        "B": " The Fuwa",
+        "C": "  Wenlock",
+        "D": " migha",
+        "answer": "B"
+    },
+    {
+        "question": "how many medals did sushil kumar wins in olympics games ?",
+        "A": " 1 Silver · 1 Bronze",
+        "B": " 1 Silver · 2 Bronze",
+        "C": "  2 Silver · 2 Bronze",
+        "D": " 2 Silver · 1 Bronze",
+        "answer": "A"
+    },
+    {
+        "question": "who won men's hockey gold in 2020 tokyo olympics ?",
+        "A": " Bahamas ",
+        "B": " Bahrain",
+        "C": "  Bhutan ",
+        "D": "  Belgium ",
+        "answer": "D"
     }
 ]
