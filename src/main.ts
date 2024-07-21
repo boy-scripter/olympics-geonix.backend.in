@@ -4,17 +4,19 @@ import { AppModule } from './app.module';
 import { ValidationError } from 'class-validator';
 import { sessionConfig } from '@config/session/session.config';
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix("/api")
+
   app.useGlobalPipes(new ValidationPipe({
     stopAtFirstError: true,
     exceptionFactory: (errors) => fromArrayToJson(errors)
   }))
-  app.use(sessionConfig)
+  // app.use(sessionConfig)
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
 }
 
 

@@ -1,12 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import UserModule from './modules/user/user.module';
+import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './database/database.module';
+import QuizModule from '@modules/quiz/quiz.module';
+import QuizSchemaModule from './schemas/quiz/quiz.schema.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/olympics-quiz-2024?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.0'),
-    UserModule
+    ConfigModule.forRoot({ isGlobal: true, cache: true }),
+    DatabaseModule,
+    QuizModule,
+    QuizSchemaModule
   ],
   controllers: [AppController],
   providers: [],

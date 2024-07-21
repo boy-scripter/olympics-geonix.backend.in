@@ -1,9 +1,20 @@
 import { Module } from "@nestjs/common";
-import { databaseProviders } from "./database.provider";
+import { DATABASE_CONNECTION } from "./database.constant";
+import { MongooseModule } from "@nestjs/mongoose";
+import { MongooseOlympicsConfigService, MongooseOlympicsQuiz2024ConfigService } from "./moongoseModule.config";
 
 @Module({
-    providers: [...databaseProviders],
-    exports: [...databaseProviders]
+    imports: [
+        MongooseModule.forRootAsync({
+            connectionName: DATABASE_CONNECTION.OLYMPICS,
+            useClass: MongooseOlympicsConfigService
+        }),
+        MongooseModule.forRootAsync({
+            connectionName: DATABASE_CONNECTION.OLYMPICS_QUIZ_2024,
+            useClass: MongooseOlympicsQuiz2024ConfigService
+        })
+    ],
+    exports: [MongooseModule]
 })
 
 export class DatabaseModule { }
