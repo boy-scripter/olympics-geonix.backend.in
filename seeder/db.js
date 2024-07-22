@@ -1,7 +1,7 @@
 // db.js
 const mongoose = require('mongoose');
 
-const DB_NAME = "olympics-quiz-2024"
+const DB_NAME = "olympics_quiz_2024"
 
 const url = 'mongodb://127.0.0.1:27017/' + DB_NAME;
 

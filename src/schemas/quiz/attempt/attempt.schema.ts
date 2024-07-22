@@ -6,19 +6,20 @@ import { SELECT_STATUS } from '@interface/quiz.interface';
 @Schema()
 export class Attempt extends Document {
 
+
     @Prop({ required: true, type: mongoose.Schema.Types.ObjectId, ref: "User" })
     user: mongoose.Schema.Types.ObjectId;
 
     @Prop({ required: true, type: mongoose.Schema.Types.ObjectId, ref: "Question" })
     question: mongoose.Schema.Types.ObjectId;
 
-    @Prop({ required: true, enum: ANSWER_OPTIONS })
+    @Prop({ type: String, enum: ANSWER_OPTIONS })
     selected_option: ANSWER_OPTIONS;
 
     @Prop({ required: true, default: new Date(), type: Date })
     time: Date;
 
-    @Prop({ required: true, enum: SELECT_STATUS , type : String })
+    @Prop({ required: true, enum: SELECT_STATUS, type: String, default: SELECT_STATUS.NOT_ANSWERED })
     status: SELECT_STATUS;
 
 }

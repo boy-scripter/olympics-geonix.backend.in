@@ -1,4 +1,4 @@
-export enum SCORE_STATUS {
+export enum PLAYING_STATUS {
     STARTED = "STARTED",
     FINISHED = "FINISHED",
     ABORTED = "ABORTED"
@@ -12,7 +12,7 @@ export enum ANSWER_OPTIONS {
 }
 
 export enum SELECT_STATUS {
-    SKIPPED = "SKIPPED",
+    NOT_ANSWERED = "NOT_ANSWERED",
     CORRECT = "CORRECT",
     WRONG = "WRONG",
   }

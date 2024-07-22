@@ -14,7 +14,7 @@ async function bootstrap() {
     stopAtFirstError: true,
     exceptionFactory: (errors) => fromArrayToJson(errors)
   }))
-  // app.use(sessionConfig)
+  app.use(sessionConfig)
 
   await app.listen(process.env.PORT);
 }
