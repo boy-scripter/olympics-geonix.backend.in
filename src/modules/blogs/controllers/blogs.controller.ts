@@ -13,10 +13,10 @@ export class BlogController {
     @InjectModel(BLOG_MODEL, DATABASE_CONNECTION.OLYMPICS) private readonly blogsModel: Model<Blog>;
 
 
-    @Post()
-    async CreateBlog(@Body() createBlogDto: CreateBlogDto): Promise<Blog> {
-        return this.blogsService.create(createBlogDto);
-    }
+    // @Post()
+    // async CreateBlog(@Body() createBlogDto: CreateBlogDto): Promise<Blog> {
+    //     return this.blogsService.create(createBlogDto);
+    // }
 
     @Get()
     async GetAll(): Promise<Blog[]> {
@@ -28,9 +28,9 @@ export class BlogController {
         return this.blogsService.findOne(id);
     }
 
-    @Get('/top')
-    async GetTopBlogs(@Param('id') id: string): Promise<Blog> {
-        return this.blogsService.findOne(id);
-    }
+    // @Get('/top')
+    // async GetTopBlogs(@Param('id') id: string): Promise<Blog> {
+    //     return this.blogsService.findOne(id);
+    // }
 
 }
