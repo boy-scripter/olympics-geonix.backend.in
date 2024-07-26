@@ -4,10 +4,7 @@ import { Document } from 'mongoose';
 @Schema()
 export class User extends Document {
     @Prop({ required: true })
-    first_name: string;
-
-    @Prop({ required: true })
-    last_name: string;
+    name: string
 
     @Prop({ required: true, unique: true })
     mobile: string;
@@ -25,13 +22,16 @@ export class User extends Document {
     city: string;
 
     @Prop({ required: true })
-    state: string;
+    password: string;
 
-    @Prop({ required: true })
-    address: string;
+    // @Prop({ required: true })
+    // state: string;
 
-    @Prop({ required: true })
-    pincode: number;
+    // @Prop({ required: true })
+    // address: string;
+
+    // @Prop({ required: true })
+    // pincode: number;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

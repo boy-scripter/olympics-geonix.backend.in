@@ -18,15 +18,15 @@ export class BlogController {
     //     return this.blogsService.create(createBlogDto);
     // }
 
-    @Get()
-    async GetAll(): Promise<Blog[]> {
-        return this.blogsService.findAll();
-    }
+    // @Get()
+    // async GetAll(): Promise<Blog[]> {
+    //     return this.blogsService.findAll();
+    // }
 
-    @Get(':id')
-    async GetSpecific(@Param('id') id: string): Promise<Blog> {
-        return this.blogsService.findOne(id);
-    }
+    // @Get(':id')
+    // async GetSpecific(@Param('id') id: string): Promise<Blog> {
+    //     return this.blogsService.findOne(id);
+    // }
 
     // @Get('/top')
     // async GetTopBlogs(@Param('id') id: string): Promise<Blog> {

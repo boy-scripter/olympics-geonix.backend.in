@@ -14,7 +14,7 @@ export class Attempt extends Document {
     question: mongoose.Schema.Types.ObjectId;
 
     @Prop({ type: String, enum: ANSWER_OPTIONS })
-    selected_option: ANSWER_OPTIONS;
+    selected_option: string;
 
     @Prop({ required: true, default: new Date(), type: Date })
     time: Date;

@@ -1,6 +1,7 @@
-import { Injectable, InternalServerErrorException, HttpException, NotFoundException, BadRequestException } from "@nestjs/common";
+import { Injectable, InternalServerErrorException, HttpException, NotFoundException, BadRequestException, UnauthorizedException } from "@nestjs/common";
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
+import * as bcrypt from "bcrypt";
 
 import { createUserDto, SubmitAnswerDto } from "../dto/index.dto";
 import { DATABASE_CONNECTION } from "@database/database.constant";
@@ -9,9 +10,9 @@ import { QUESTION_MODEL, Question } from "@schemas/quiz/question/question.schema
 import { USER_MODEL, User } from "@schemas/quiz/user/user.schema";
 import { ATTEMPT_MODEL, Attempt } from "@schemas/quiz/attempt/attempt.schema";
 import { PLAYER_SCORE_MODEL, PlayerScore } from "@schemas/quiz/player_score/player_score.schema";
-import { ANSWER_MODEL, Answer } from "@/src/schemas/quiz/answers/answer.schema";
-
+import { ANSWER_MODEL, Answer } from "@schemas/quiz/answers/answer.schema";
 import { PLAYING_STATUS, SELECT_STATUS } from "@interface/quiz.interface";
+import loginUserDto from "../dto/loginUser.dto";
 
 @Injectable()
 export default class QuizService {
@@ -23,7 +24,6 @@ export default class QuizService {
     @InjectModel(ANSWER_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly answerModel: Model<Answer>;
 
     async createUser(createUserData: createUserDto, session: Record<string, any>): Promise<User> {
-
         const isUserExist = await this.userModel.findOne({
             $or: [
                 { email: createUserData.email },
@@ -32,19 +32,33 @@ export default class QuizService {
         })
         if (isUserExist) throw new BadRequestException('user already exist');
 
+        const hashPass = bcrypt.hashSync(createUserData.password.toString(), 10)
+        createUserData.password = hashPass
+
         const newUser = await new this.userModel(createUserData).save()
         if (!newUser) throw new InternalServerErrorException();
 
-        session.user = newUser;
-        return newUser;
-
+        session.user = Object.assign(newUser.toObject(), { password: undefined });;
+        return session.user;
     }
+
+    async loginUser(userData: loginUserDto, session: Record<string, any>): Promise<User> {
+
+        const user = await this.userModel.findOne({ email: userData.email }).exec();
+        if (!user) throw new BadRequestException('Invalid credentials');
+
+        const isPasswordMatch = bcrypt.compareSync(userData.password, user.password);
+        if (!isPasswordMatch) throw new BadRequestException('Invalid credentials');
+
+        session.user = Object.assign(user.toObject(), { password: undefined });;
+        return session.user;
+    }
+
 
     async getRandomQuestionForUser(userId: string): Promise<any> {
 
         const attemptsCount = await this.attemptModel.countDocuments({ user: userId }).exec();
         if (attemptsCount >= 3) throw new BadRequestException('You Already Attempted Your 3 questions');
-
         const attempts = await this.attemptModel.find({ user: userId }).select('question').exec();
         const attemptedQuestionIds = attempts.map(attempt => attempt.question);
 
@@ -55,7 +69,6 @@ export default class QuizService {
 
         const isAttemptsaved = await new this.attemptModel({ user: userId, question: randomQuestions[0]._id, time: new Date() }).save()
         if (!isAttemptsaved) throw new InternalServerErrorException("something went wrong");
-
         const answer = await this.answerModel.findOne({ question: randomQuestions[0]._id })
 
         return {
@@ -66,11 +79,11 @@ export default class QuizService {
         };
     }
 
-    async submitAnswer(submitAnswerDto, userid: string) {
+    async submitAnswer(submitAnswerDto: SubmitAnswerDto, userid: string) {
 
         const { attemptId, option } = submitAnswerDto;
 
-        const attempt = await this.attemptModel.findOne({ _id: attemptId, user: userid  }).exec();
+        const attempt = await this.attemptModel.findOne({ _id: attemptId, user: userid }).exec();
         if (!attempt) throw new NotFoundException('Question not found');
         if (attempt.status != SELECT_STATUS.NOT_ANSWERED) throw new BadRequestException("Unable to Save the Answer")
         attempt.selected_option = option
@@ -81,7 +94,7 @@ export default class QuizService {
         if (diffInSeconds > 100) throw new HttpException('oops timeout for this question', 422);
 
         const answer = await this.answerModel.find({ question: attempt.question, correct_option: option }).exec();
-        console.log(answer)
+
         if (!answer.length) {
             attempt.status = SELECT_STATUS.WRONG
             await attempt.save();
@@ -90,7 +103,7 @@ export default class QuizService {
 
         //increase score
         const player_score = await this.playerModel.findOneAndUpdate(
-            { user: attempt.user  },
+            { user: attempt.user },
             { $inc: { total_score: 20 } },
             { new: true }
         )
@@ -107,6 +120,10 @@ export default class QuizService {
 
 
     async startGame(userId: string): Promise<PlayerScore> {
+
+        const player = await this.playerModel.findOne({ user: userId, status: { $in: [PLAYING_STATUS.FINISHED, PLAYING_STATUS.ABORTED] } }).exec();
+        if (player) throw new UnauthorizedException("Already Played")
+
         const score = new this.playerModel({ user: userId }).save()
         return score
     }
