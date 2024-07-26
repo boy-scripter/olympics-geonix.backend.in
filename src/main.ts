@@ -10,7 +10,7 @@ async function bootstrap() {
 
   // Global Prefix
   app.setGlobalPrefix("/api")
-   
+
   //GLOBAL VALIDATION PIPE
   app.useGlobalPipes(new ValidationPipe({
     stopAtFirstError: true,
@@ -21,7 +21,7 @@ async function bootstrap() {
   app.use(sessionConfig)
 
   //CORS
-  app.enableCors({ origin: process.env.CORS })
+  app.enableCors({ origin: process.env.CORS, credentials: true })
 
   await app.listen(process.env.PORT);
 }

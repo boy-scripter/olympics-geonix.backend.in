@@ -5,7 +5,7 @@ export const sessionConfig = session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 60 * 60 * 1000,
-        sameSite: 'none',
+        secure: false,
+        maxAge: 12 * 60 * 60 * 1000,
     }
 })
