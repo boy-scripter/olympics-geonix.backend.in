@@ -5,19 +5,19 @@ import { MongooseOptionsFactory, MongooseModuleOptions } from "@nestjs/mongoose"
 @Injectable()
 export class MongooseOlympicsConfigService implements MongooseOptionsFactory {
 
-    constructor(private config: ConfigService) { }
+    constructor(private configService: ConfigService) { }
 
     createMongooseOptions(): MongooseModuleOptions | Promise<MongooseModuleOptions> {
-        return { uri: this.config.get('OLYMPICS_DATABASE_URI') };
+        return { uri: this.configService.get('OLYMPICS_DATABASE_URI') };
     }
 }
 
 @Injectable()
 export class MongooseOlympicsQuiz2024ConfigService implements MongooseOptionsFactory {
 
-    constructor(private config: ConfigService) { }
+    constructor(private configService: ConfigService) { }
 
     createMongooseOptions(): MongooseModuleOptions | Promise<MongooseModuleOptions> {
-        return { uri: this.config.get('OLYMPICS_QUIZ_2024_DATABASE_URI') };
+        return { uri: this.configService.get('OLYMPICS_QUIZ_2024_DATABASE_URI') };
     }
 }

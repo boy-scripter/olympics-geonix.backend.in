@@ -24,6 +24,8 @@
       "@schemas/*" : ["./src/schemas/*"],
       "@interface/*" : ["./src/interface/*"],
       "@modules/*" : ["./src/modules/*"],
+      "@utils/*" : ["./src/utils/*"],
+      "@constant/*" : ["./src/constant/*"],
     }
   }
 }

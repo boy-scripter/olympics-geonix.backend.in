@@ -1,11 +1,13 @@
-import { Module } from "@nestjs/common";
+import { Module , Global } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
 import { DATABASE_CONNECTION } from "../database/database.constant";
-import { Global } from "@nestjs/common";
+
 import { BLOG_MODEL, BlogSchema } from "./blog/blog.schema";
+import { NEWS_MODEL , NewsSchema } from "./news/news.schema";
 
 const MODELS = [
-    { name: BLOG_MODEL, schema: BlogSchema }
+    { name: BLOG_MODEL, schema: BlogSchema },
+    { name: NEWS_MODEL, schema: NewsSchema }
 ]
 
 @Global()
@@ -14,4 +16,4 @@ const MODELS = [
     exports: [MongooseModule]
 })
 
-export class SchemaModule { }
+export default class SchemaModule { }

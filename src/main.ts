@@ -26,6 +26,7 @@ async function bootstrap() {
   await app.listen(process.env.PORT);
 }
 
+bootstrap();
 
 function fromArrayToJson(errors: ValidationError[]) {
   const newArrayOfError = errors.map(
@@ -33,5 +34,3 @@ function fromArrayToJson(errors: ValidationError[]) {
   )
   return new BadRequestException(newArrayOfError)
 }
-
-bootstrap();

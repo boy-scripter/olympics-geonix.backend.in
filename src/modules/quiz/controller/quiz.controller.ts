@@ -16,10 +16,13 @@ export default class QuizController {
     async CreateUser(@Body() createUserData: createUserDto, @Session() session: Record<string, any>) {
         return this.quizService.createUser(createUserData, session)
     }
+
     @Post('/login')
     async LoginUser(@Body() userData: loginUserDto, @Session() session: Record<string, any>) {
         return this.quizService.loginUser(userData, session)
     }
+
+    
     @Get('/user')
     async User(@Session() session: Record<string, any>) {
         if (!session.user) throw new UnauthorizedException()
