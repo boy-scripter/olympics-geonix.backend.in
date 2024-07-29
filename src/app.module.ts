@@ -11,7 +11,7 @@ import SchemaModule from './schemas/schema.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, cache: true }),
-
+   
     /** database start Schemas */
     DatabaseModule,
     QuizSchemaModule,

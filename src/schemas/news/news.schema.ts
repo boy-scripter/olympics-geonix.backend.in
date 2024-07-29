@@ -13,10 +13,10 @@ export class News extends Document {
     @Prop({ required: true, type: String })
     description: string;
 
-    @Prop({ required: true, type: String })
+    @Prop({ type: String })
     preview_image: string;
 
-    @Prop({ required: true, type: [String] })
+    @Prop({ type: [String] })
     image: string;
 
 }

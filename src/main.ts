@@ -4,7 +4,6 @@ import { AppModule } from './app.module';
 import { ValidationError } from 'class-validator';
 import { sessionConfig } from '@config/session/session.config';
 
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 

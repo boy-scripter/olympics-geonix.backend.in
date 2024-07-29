@@ -7,29 +7,56 @@ import { CreateNewsDto } from "../dto/createNews.dto";
 import { NEWS_MODEL, News } from "@schemas/news/news.schema";
 import { DATABASE_CONNECTION } from "@database/database.constant";
 import { CreateNewsImages } from "@/src/interface/news.interface";
-
+import { PutObjectCommandOutput } from "@aws-sdk/client-s3";
 
 @Injectable()
 export default class NewsService {
 
     @Inject() uploadService: UploadService
     @InjectModel(NEWS_MODEL, DATABASE_CONNECTION.OLYMPICS) private readonly newsModel: Model<News>
+
     async createNews(file: CreateNewsImages, createNewsDto: CreateNewsDto) {
 
-        const isUploaded = await this.uploadService.uploadFile([file.image, file.preview]);
-
-        if (!isUploaded) throw new InternalServerErrorException({
-            message: isUploaded.toString(),
-            error: "Failed to upload files"
-        })
-
-        const news = this.newsModel.create({
+      
+        const news = await new this.newsModel({
             title: createNewsDto.title,
             description: createNewsDto.description,
-            preview_image: isUploaded[0],
-            image: isUploaded[1],
+            sub_heading: createNewsDto.sub_heading,
+        }).save()
+
+
+        const isUploaded = await this.uploadService.uploadFile([file.image, file.preview_image], 'news/' + news._id );
+
+        if (!isUploaded) throw new InternalServerErrorException({
+            message: 'Failed to upload files',
+            error: "File upload returned false or null"
         })
 
-        if (!news) throw new InternalServerErrorException()
+        news.preview_image = isUploaded[0]
+        news.image = isUploaded[1]
+        const isSaved = await news.save()
+        if (!isSaved) throw new InternalServerErrorException()
+
+        return {
+            message: 'news created successfully',
+            statusCode: 200
+        }
+
     }
+
+    async specificNews(id: number) {
+        return await this.newsModel.findById(id)
+    }
+
+    async latestNews(size: number = 5) {
+        return await this.newsModel.find().sort({ createdAt: -1 }).limit(size).exec();
+    }
+
+    async allNews(size: number = 5, page: number = 1,) {
+        const skip = (page - 1) * size;
+
+        return await this.newsModel.find().sort({ createdAt: -1 }).limit(size).skip(skip).exec();
+    }
+
+
 }

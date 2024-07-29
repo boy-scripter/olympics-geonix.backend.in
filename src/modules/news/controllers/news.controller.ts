@@ -13,27 +13,27 @@ export class NewsController {
 
     @Get()
     AllNews(@Query('size') size: number, @Query('page') page?: number) {
-        return "All News";
+        return this.newsService.allNews(size , page)
     }
 
     @Get('/latest')
     LatestNews(@Query('size') size?: number) {
-        return "Latest News";
+        return this.newsService.latestNews(size)
     }
 
     @Get('/:id')
     SpecificNews(@Param('id') id: number) {
-
+       return this.newsService.specificNews(id)
     }
 
 
     @Post()
-    @UseInterceptors(FileFieldsInterceptor([{ name: 'preview', maxCount: 1 }, { name: 'image', maxCount: 1 }]))
+    @UseInterceptors(FileFieldsInterceptor([{ name: 'preview_image', maxCount: 1 }, { name: 'image', maxCount: 1 }]))
     async CreateNews(
         @UploadedFiles(new ParseFilePipe({
             validators: [
-                //  new FileTypeValidator({ fileType: '.(' + IMAGE_TYPES.join('|') + ')' }),
-                // new MaxFileSizeValidator({ maxSize: IMAGE_LIMIT , message: "File is too large" }),
+                // new FileTypeValidator({ fileType: '.(png|jpg|jpeg)' }),
+                // new MaxFileSizeValidator({ maxSize: IMAGE_LIMIT, message: "File is too large" }),
             ],
             fileIsRequired: true,
         })) files: CreateNewsImages,

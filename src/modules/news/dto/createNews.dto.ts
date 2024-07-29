@@ -6,5 +6,8 @@ export class CreateNewsDto {
     title: string;
 
     @IsString()
+    sub_heading: string;
+ 
+    @IsString()
     description: string;
 }
