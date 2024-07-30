@@ -7,7 +7,7 @@ import { CreateNewsDto } from "../dto/createNews.dto";
 import { NEWS_MODEL, News } from "@schemas/news/news.schema";
 import { DATABASE_CONNECTION } from "@database/database.constant";
 import { CreateNewsImages } from "@/src/interface/news.interface";
-import { PutObjectCommandOutput } from "@aws-sdk/client-s3";
+
 
 @Injectable()
 export default class NewsService {

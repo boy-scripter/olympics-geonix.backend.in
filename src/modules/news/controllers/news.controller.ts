@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Param, Post, Inject, UseInterceptors, UploadedFiles, ParseFilePipe, FileTypeValidator, MaxFileSizeValidator, Body } from "@nestjs/common";
+import { Controller, Get, Query, Param, Post, Inject, UseInterceptors, UploadedFiles, ParseFilePipe, ParseIntPipe, FileTypeValidator, MaxFileSizeValidator, Body, UsePipes } from "@nestjs/common";
 import { FileFieldsInterceptor } from "@nestjs/platform-express";
 
 import { CreateNewsDto } from "../dto/createNews.dto";
@@ -12,18 +12,20 @@ export class NewsController {
     @Inject() private readonly newsService: NewsService;
 
     @Get()
+    @UsePipes(ParseIntPipe)
     AllNews(@Query('size') size: number, @Query('page') page?: number) {
-        return this.newsService.allNews(size , page)
+        return this.newsService.allNews(size, page)
     }
 
     @Get('/latest')
-    LatestNews(@Query('size') size?: number) {
+    LatestNews(@Query('size', ParseIntPipe) size?: number) {
         return this.newsService.latestNews(size)
     }
 
     @Get('/:id')
+    @UsePipes(ParseIntPipe)
     SpecificNews(@Param('id') id: number) {
-       return this.newsService.specificNews(id)
+        return this.newsService.specificNews(id)
     }
 
 
