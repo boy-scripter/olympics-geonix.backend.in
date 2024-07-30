@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const connect = require('../db');
 const AnswerModel = require("./schema/answer")
 const QuestionModel = require("./schema/question")
-const data = require('../../data/question.json');
+const data = require('./data/question.json');
 
 async function seed() {
     await connect;

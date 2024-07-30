@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const connect = require('../db');
 const BlogModel = require("./schemas/blog.schema")
-const data = require('../../data/blogs.json');
+const data = require('./data/blogs.json');
 
 async function seed() {
     await connect;
