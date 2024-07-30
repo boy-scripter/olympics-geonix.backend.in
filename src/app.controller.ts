@@ -11,7 +11,7 @@ export class AppController {
     return "Geonix";
   }
 
-  @Get('admin')
+  @Get('adminadminadminadmin')
   admin(@Res() response: Response) {
     return response.sendFile(join(resolve(), 'admin/news_article.html'))
   }

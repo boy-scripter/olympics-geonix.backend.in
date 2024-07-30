@@ -23,9 +23,8 @@ export class NewsController {
     }
 
     @Get('/:id')
-    @UsePipes(ParseIntPipe)
     SpecificNews(@Param('id') id: string) {
-        return this.newsService.specificNews(id)
+        return this.newsService.specificNews(""+id)
     }
 
 
