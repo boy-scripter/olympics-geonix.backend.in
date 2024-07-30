@@ -11,8 +11,14 @@ export class NewsController {
 
     @Inject() private readonly newsService: NewsService;
 
+    @Get('specific')
+    SpecificNews(@Query('id') id :string) {
+       
+        return this.newsService.specificNews(id)
+    }
+
     @Get()
-    @UsePipes(ParseIntPipe)
+  
     AllNews(@Query('size') size: number, @Query('page') page: number) {
         return this.newsService.allNews(size, page)
     }
@@ -20,11 +26,6 @@ export class NewsController {
     @Get('/latest')
     LatestNews(@Query('size', ParseIntPipe) size: number = 9) {
         return this.newsService.latestNews(size)
-    }
-
-    @Get('/:id')
-    SpecificNews(@Param('id') id: string) {
-        return this.newsService.specificNews(""+id)
     }
 
 

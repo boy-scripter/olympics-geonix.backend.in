@@ -49,6 +49,7 @@ export default class NewsService {
     }
 
     async specificNews(id: string) {
+  
         return await this.newsModel.findById(id)
     }
 
