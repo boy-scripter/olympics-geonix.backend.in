@@ -17,7 +17,7 @@ export default class NewsService {
 
     async createNews(file: CreateNewsImages, createNewsDto: CreateNewsDto) {
 
-      
+
         const news = await new this.newsModel({
             title: createNewsDto.title,
             description: createNewsDto.description,
@@ -25,7 +25,7 @@ export default class NewsService {
         }).save()
 
 
-        const isUploaded = await this.uploadService.uploadFile([file.image, file.preview_image], 'news/' + news._id );
+        const isUploaded = await this.uploadService.uploadFile([file.image, file.preview_image], 'news/' + news._id);
 
         if (!isUploaded) throw new InternalServerErrorException({
             message: 'Failed to upload files',
@@ -35,16 +35,20 @@ export default class NewsService {
         news.preview_image = isUploaded[0]
         news.image = isUploaded[1]
         const isSaved = await news.save()
-        if (!isSaved) throw new InternalServerErrorException()
+        
+        if (!isSaved) {
+            await this.newsModel.deleteOne(news._id)
+            throw new InternalServerErrorException()
+        }
 
         return {
-            message: 'news created successfully',
+            message: 'News created successfully',
             statusCode: 200
         }
 
     }
 
-    async specificNews(id: number) {
+    async specificNews(id: string) {
         return await this.newsModel.findById(id)
     }
 

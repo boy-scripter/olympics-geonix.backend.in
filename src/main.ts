@@ -3,9 +3,15 @@ import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { ValidationError } from 'class-validator';
 import { sessionConfig } from '@config/session/session.config';
+import fs from 'fs';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    httpsOptions: {
+      key: fs.readFileSync(__dirname + './cert/private.key'),
+      cert: fs.readFileSync(__dirname + './cert/certficate.crt')
+    }
+  });
 
   // Global Prefix
   app.setGlobalPrefix("/api")

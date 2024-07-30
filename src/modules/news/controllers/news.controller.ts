@@ -13,18 +13,18 @@ export class NewsController {
 
     @Get()
     @UsePipes(ParseIntPipe)
-    AllNews(@Query('size') size: number, @Query('page') page?: number) {
+    AllNews(@Query('size') size: number, @Query('page') page: number) {
         return this.newsService.allNews(size, page)
     }
 
     @Get('/latest')
-    LatestNews(@Query('size', ParseIntPipe) size?: number) {
+    LatestNews(@Query('size', ParseIntPipe) size: number = 9) {
         return this.newsService.latestNews(size)
     }
 
     @Get('/:id')
     @UsePipes(ParseIntPipe)
-    SpecificNews(@Param('id') id: number) {
+    SpecificNews(@Param('id') id: string) {
         return this.newsService.specificNews(id)
     }
 
