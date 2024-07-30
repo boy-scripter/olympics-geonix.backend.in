@@ -7,10 +7,10 @@ import * as fs from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    // httpsOptions: {
-    //   key: fs.readFileSync(__dirname + '/cert/private.key'),
-    //   cert: fs.readFileSync(__dirname + '/cert/certficate.crt')
-    // }
+    httpsOptions: {
+      key: fs.readFileSync(__dirname + '/cert/private.key'),
+      cert: fs.readFileSync(__dirname + '/cert/certficate.crt')
+    }
   }
 );
 
