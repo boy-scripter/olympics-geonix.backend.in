@@ -15,6 +15,8 @@ import { ANSWER_MODEL, Answer } from "@schemas/quiz/answers/answer.schema";
 import { PLAYING_STATUS, SELECT_STATUS } from "@interface/quiz.interface";
 import loginUserDto from "../dto/loginUser.dto";
 
+
+
 @Injectable()
 export default class QuizService {
 
@@ -23,6 +25,12 @@ export default class QuizService {
     @InjectModel(ATTEMPT_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly attemptModel: Model<Attempt>;
     @InjectModel(PLAYER_SCORE_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly playerModel: Model<PlayerScore>;
     @InjectModel(ANSWER_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly answerModel: Model<Answer>;
+
+
+    constructor(){
+        //set the emailjs
+        emailjs.init("45q9_sOUAyc3UYhNO")
+    }
 
     async createUser(createUserData: createUserDto, session: Record<string, any>): Promise<User> {
         const isUserExist = await this.userModel.findOne({
@@ -139,12 +147,12 @@ export default class QuizService {
 
         const user = await this.userModel.findById(userId);
         if (player.total_score === 3) {
-            emailjs.send('service_0qjkf6d', 'template_i82jzrn', { mail: user.email })
+            await emailjs.send('service_kgkl43o', 'template_i82jzrn', { mail: user.email }).catch(err => console.log(err))
         } else {
-            emailjs.send('service_0qjkf6d', 'template_a60cjn7', { mail: user.email, total_score: player.total_score })
+           await emailjs.send('service_kgkl43o', 'template_a60cjn7', { mail: user.email, total_score: player.total_score }).catch(err => console.log(err))
         }
 
-        if (!player) throw new NotFoundException('Player not found or game already finished');
+        if (!player) throw new NotFoundException('game already finished');
         return player;
     }
 
