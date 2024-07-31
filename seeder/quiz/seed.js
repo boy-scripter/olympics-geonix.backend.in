@@ -16,7 +16,7 @@ async function seed() {
         for (let currentData of data) {
 
           
-            const question1 = await new QuestionModel({ text: currentData.question, }).save();
+            const question1 = await new QuestionModel({ text: currentData.question}).save();
 
             const answer1 = await new AnswerModel({
                 question: question1._id,
