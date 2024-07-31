@@ -91,7 +91,7 @@ export default class QuizService {
         const now = new Date();
         const attemptTime = new Date(attempt.time);
         const diffInSeconds = (now.getTime() - attemptTime.getTime()) / 1000;
-        if (diffInSeconds > 100) throw new HttpException('oops timeout for this question', 422);
+        if (diffInSeconds > 13) throw new HttpException('oops timeout for this question', 422);
 
         const answer = await this.answerModel.find({ question: attempt.question, correct_option: option }).exec();
 
