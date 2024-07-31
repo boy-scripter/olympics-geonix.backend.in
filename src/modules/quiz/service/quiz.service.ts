@@ -104,7 +104,7 @@ export default class QuizService {
         //increase score
         const player_score = await this.playerModel.findOneAndUpdate(
             { user: attempt.user },
-            { $inc: { total_score: 20 } },
+            { $inc: { total_score: 1 } },
             { new: true }
         )
 
