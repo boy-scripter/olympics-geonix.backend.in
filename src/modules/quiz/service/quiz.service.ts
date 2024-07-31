@@ -2,6 +2,7 @@ import { Injectable, InternalServerErrorException, HttpException, NotFoundExcept
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
 import * as bcrypt from "bcrypt";
+import emailjs from '@emailjs/browser';
 
 import { createUserDto, SubmitAnswerDto } from "../dto/index.dto";
 import { DATABASE_CONNECTION } from "@database/database.constant";
@@ -108,6 +109,7 @@ export default class QuizService {
             { new: true }
         )
 
+
         attempt.status = SELECT_STATUS.CORRECT
         await attempt.save();
 
@@ -134,6 +136,13 @@ export default class QuizService {
             { status: PLAYING_STATUS.FINISHED, finished_time: new Date() },
             { new: true }
         ).exec();
+
+        const user = await this.userModel.findById(userId);
+        if (player.total_score === 3) {
+            emailjs.send('service_0qjkf6d', 'template_i82jzrn', { mail: user.email })
+        } else {
+            emailjs.send('service_0qjkf6d', 'template_a60cjn7', { mail: user.email, total_score: player.total_score })
+        }
 
         if (!player) throw new NotFoundException('Player not found or game already finished');
         return player;
