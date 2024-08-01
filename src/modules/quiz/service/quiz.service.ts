@@ -1,8 +1,10 @@
-import { Injectable, InternalServerErrorException, HttpException, NotFoundException, BadRequestException, UnauthorizedException } from "@nestjs/common";
+import { Injectable, InternalServerErrorException, HttpException, NotFoundException, BadRequestException, UnauthorizedException, UnprocessableEntityException, Inject } from "@nestjs/common";
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
 import * as bcrypt from "bcrypt";
-import emailjs from '@emailjs/browser';
+import axios from "axios"
+import * as moment from 'moment';
+import 'moment-timezone';
 
 import { createUserDto, SubmitAnswerDto } from "../dto/index.dto";
 import { DATABASE_CONNECTION } from "@database/database.constant";
@@ -14,7 +16,7 @@ import { PLAYER_SCORE_MODEL, PlayerScore } from "@schemas/quiz/player_score/play
 import { ANSWER_MODEL, Answer } from "@schemas/quiz/answers/answer.schema";
 import { PLAYING_STATUS, SELECT_STATUS } from "@interface/quiz.interface";
 import loginUserDto from "../dto/loginUser.dto";
-
+import { ConfigService } from "@nestjs/config";
 
 
 @Injectable()
@@ -26,10 +28,14 @@ export default class QuizService {
     @InjectModel(PLAYER_SCORE_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly playerModel: Model<PlayerScore>;
     @InjectModel(ANSWER_MODEL, DATABASE_CONNECTION.OLYMPICS_QUIZ_2024) private readonly answerModel: Model<Answer>;
 
+    private START_TIME: number;
+    private END_TIME: number;
 
-    constructor(){
-        //set the emailjs
-        emailjs.init("45q9_sOUAyc3UYhNO")
+    constructor(configService: ConfigService) {
+
+        this.START_TIME = configService.getOrThrow('START_TIME')
+        this.END_TIME = configService.getOrThrow('END_TIME')
+
     }
 
     async createUser(createUserData: createUserDto, session: Record<string, any>): Promise<User> {
@@ -130,6 +136,8 @@ export default class QuizService {
 
 
     async startGame(userId: string): Promise<PlayerScore> {
+        const time = moment().tz("Asia/Kolkata").hour();
+        if (!(time >= this.START_TIME && time < this.END_TIME)) throw new UnprocessableEntityException('Game is Finished - Try Next Time')
 
         const player = await this.playerModel.findOne({ user: userId, status: { $in: [PLAYING_STATUS.FINISHED, PLAYING_STATUS.ABORTED] } }).exec();
         if (player) throw new UnauthorizedException("Already Played")
@@ -147,15 +155,29 @@ export default class QuizService {
 
         const user = await this.userModel.findById(userId);
         if (player.total_score === 3) {
-            await emailjs.send('service_kgkl43o', 'template_i82jzrn', { mail: user.email }).catch(err => console.log(err))
+            await this.sendMail('template_i82jzrn', { mail: user.email })
         } else {
-           await emailjs.send('service_kgkl43o', 'template_a60cjn7', { mail: user.email, total_score: player.total_score }).catch(err => console.log(err))
+            await this.sendMail('template_a60cjn7', { mail: user.email, total_score: player.total_score })
         }
 
         if (!player) throw new NotFoundException('game already finished');
         return player;
     }
 
+    private async sendMail(templateId: string, template_params: any) {
+        const data = {
+            service_id: 'service_0qjkf6d',
+            template_id: templateId,
+            user_id: '45q9_sOUAyc3UYhNO',
+            template_params: template_params
+        };
+
+        await axios.post('https://api.emailjs.com/api/v1.0/email/send', data, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+    }
 
 
 }
