@@ -137,7 +137,7 @@ export default class QuizService {
 
     async startGame(userId: string): Promise<PlayerScore> {
         const time = moment().tz("Asia/Kolkata").hour();
-        if (!(time >= this.START_TIME && time < this.END_TIME)) throw new UnprocessableEntityException('Game is Finished - Try Next Time')
+        if (!(time >= this.START_TIME && time < this.END_TIME)) throw new UnprocessableEntityException('Game is Finished')
 
         const player = await this.playerModel.findOne({ user: userId, status: { $in: [PLAYING_STATUS.FINISHED, PLAYING_STATUS.ABORTED] } }).exec();
         if (player) throw new UnauthorizedException("Already Played")
