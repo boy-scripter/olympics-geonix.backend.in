@@ -21,7 +21,7 @@ export class createUserDto {
     dob: string;
 
     @IsNotEmpty() @IsString()
-    city: string;
+    state: string;
 
     // @IsNotEmpty() @IsString()
     // state: string;

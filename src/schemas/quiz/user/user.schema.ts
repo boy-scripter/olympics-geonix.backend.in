@@ -19,7 +19,7 @@ export class User extends Document {
     dob: string;
 
     @Prop({ required: true })
-    city: string;
+    state: string;
 
     @Prop({ required: true })
     password: string;
