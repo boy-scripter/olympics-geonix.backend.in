@@ -8,6 +8,6 @@ export const sessionConfig = session({
         secure: (String(process.env.SESSION_SECURE).toLowerCase() === 'true'),
         httpOnly: true,
         sameSite: 'none',
-        maxAge: 12 * 60 * 60 * 1000,
+        maxAge: 5 * 60 * 1000,
     }
 })
