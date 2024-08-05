@@ -14,21 +14,10 @@ export class createUserDto {
     @IsEmail()
     email: string;
 
-    @IsIn(['MALE', 'FEMALE', 'BINARY'])
-    gender: string;
-
     @IsNotEmpty() @IsString() @Matches(/^(\d{4})-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/, { message:  "Date Of Birth is invalid" })
     dob: string;
 
     @IsNotEmpty() @IsString()
     state: string;
 
-    // @IsNotEmpty() @IsString()
-    // state: string;
-
-    // @IsNotEmpty() @IsString()
-    // address: string;
-
-    // @IsNotEmpty() @Min(110001, { message: "Pincode is Invalid" })
-    // pincode: number;
 }
