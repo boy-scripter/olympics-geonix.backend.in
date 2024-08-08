@@ -16,7 +16,8 @@ export default class CommentService {
     }
 
     async allComments(size: number, page: number, postInfo: getPostDto) {
-        const commentList = await this.commentModel.find().sort({ createdAt: -1 }).skip(page).limit(size).exec();
+        const skip = (page - 1) * size;
+        const commentList = await this.commentModel.find(postInfo).sort({ createdAt: -1 }).skip(skip).limit(size).exec();
         return commentList
     }
 
