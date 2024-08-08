@@ -13,9 +13,9 @@ export class NewCommentDto {
     email: string;
 
     @IsString() @IsEnum(COMMENT_TYPES)
-    postOn: string;
+    post: string;
 
     @IsString() @IsMongoId()
-    postOnId: string;
+    postId: string;
 
 }
