@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { NewCommentDto } from "../dto/index.dto";
+import { NewCommentDto, getPostDto } from "../dto/index.dto";
 import Comment, { COMMENT_MODEL } from "@schemas/comment/comment.schema";
 import { DATABASE_CONNECTION } from "@database/database.constant";
 
@@ -15,7 +15,7 @@ export default class CommentService {
         return (await newComment.save()).toObject();
     }
 
-    async allComments(size: number, page: number) {
+    async allComments(size: number, page: number, postInfo: getPostDto) {
         const commentList = await this.commentModel.find().sort({ createdAt: -1 }).skip(page).limit(size).exec();
         return commentList
     }

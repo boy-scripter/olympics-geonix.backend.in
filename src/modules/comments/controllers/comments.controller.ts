@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Inject, Post, Query } from "@nestjs/common";
-import { NewCommentDto } from "../dto/newComment.dto";
+import { NewCommentDto, getPostDto } from "../dto/index.dto";
 import CommentService from "../service/comments.service";
+
 
 
 @Controller('/comments')
@@ -13,7 +14,7 @@ export default class CommentController {
         return this.commentService.createComment(comment);
     }
     @Get()
-    GetAllComments(@Query() size: number, @Query() page: number) {
-        return this.commentService.allComments(size, page);
+    GetAllComments(@Query() size: number, @Query() page: number, @Body() postInfo: getPostDto) {
+        return this.commentService.allComments(size, page, postInfo);
     }
 }
