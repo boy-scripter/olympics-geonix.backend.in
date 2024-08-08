@@ -16,9 +16,9 @@ export default class Comment extends Document {
     email: string;
 
     @Prop({ required: true, enum: COMMENT_TYPES })
-    post: COMMENT_TYPES;
+    postType: COMMENT_TYPES;
 
-    @Prop({ required: true, refPath: 'post', type: mongoose.Schema.Types.ObjectId })
+    @Prop({ required: true, refPath: 'postType', type: mongoose.Schema.Types.ObjectId })
     postId: mongoose.Schema.Types.ObjectId;
 
 }

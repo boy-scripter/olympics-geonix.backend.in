@@ -13,7 +13,7 @@ export class NewCommentDto {
     email: string;
 
     @IsString() @IsEnum(COMMENT_TYPES)
-    post: string;
+    postType: string;
 
     @IsString() @IsMongoId()
     postId: string;
