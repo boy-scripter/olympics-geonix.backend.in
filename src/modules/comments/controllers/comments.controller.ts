@@ -13,8 +13,8 @@ export default class CommentController {
     CreateComment(@Body() comment: NewCommentDto) {
         return this.commentService.createComment(comment);
     }
-    @Get()
-    GetAllComments(@Query() size: number, @Query() page: number, @Body() postInfo: getPostDto) {
+    @Post('specific')
+    GetCommentById(@Query() size: number, @Query() page: number, @Body() postInfo: getPostDto) {
         return this.commentService.allComments(size, page, postInfo);
     }
 }
