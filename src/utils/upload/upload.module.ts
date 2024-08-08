@@ -4,7 +4,7 @@ import { ConfigService } from "@nestjs/config";
 
 
 @Module({
-    providers: [UploadService , ConfigService],
+    providers: [UploadService ],
     exports: [UploadService]
 })
 

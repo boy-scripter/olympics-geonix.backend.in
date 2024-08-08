@@ -26,14 +26,7 @@ export class UploadService {
     }
 
 
-    async createFolder(Key: string) {
-        const command = new PutObjectCommand({ Bucket: this.AWS_BUCKET_NAME, Key });
-        return this.s3Client.send(command);
-    }
-
-
     async uploadFile(files: Express.Multer.File[] | Express.Multer.File, folder: string) {
-        
         if (!Array.isArray(files)) files = [files];
         const uploadPromises = files.map(file => {
             file = file[0];
