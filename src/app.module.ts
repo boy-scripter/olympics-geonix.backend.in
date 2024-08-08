@@ -7,6 +7,7 @@ import { NewsModule } from '@modules/news/news.module';
 import QuizModule from '@modules/quiz/quiz.module';
 import QuizSchemaModule from '@schemas/quiz/quiz.schema.module';
 import SchemaModule from './schemas/schema.module';
+import  CommentsModule  from './modules/comments/comments.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import SchemaModule from './schemas/schema.module';
     /** database end Schemas */
 
     QuizModule,
-    NewsModule
+    NewsModule,
+    CommentsModule
   ],
   controllers: [AppController],
   providers: [],
