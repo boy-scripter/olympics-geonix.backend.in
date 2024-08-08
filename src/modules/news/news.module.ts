@@ -7,7 +7,6 @@ import NewsService from "./service/news.service";
     controllers: [NewsController],
     imports: [UploadModule],
     providers: [NewsService],
-    exports: [NewsService]
 })
 
 export class NewsModule { }
