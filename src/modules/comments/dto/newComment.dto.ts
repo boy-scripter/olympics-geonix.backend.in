@@ -1,5 +1,5 @@
 import { COMMENT_TYPES } from "@interface/comment.interface";
-import { IsString, MinLength, IsEnum } from "class-validator";
+import { IsString, MinLength, IsEnum, IsMongoId } from "class-validator";
 
 export class NewCommentDto {
 
@@ -15,8 +15,7 @@ export class NewCommentDto {
     @IsString() @IsEnum(COMMENT_TYPES)
     commentOn: string;
 
-    @IsString() @IsEnum(COMMENT_TYPES)
+    @IsString() @IsMongoId()
     commentOnId: string;
-
 
 }
